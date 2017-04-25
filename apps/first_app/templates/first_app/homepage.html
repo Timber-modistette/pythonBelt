@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Homepage</title>
+		<meta charset="utf-8">
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'first_app/stylesheet.css' %}">
+	</head>
+	<body>
+		<h1>Welcome {{request.session.name}}</h1>
+		<a href="/logout">Logout</a>
+		<h2>Quotable Quotes</h2>
+		<div class="mainQuoteBox">
+		{% for quote in quotes %}
+			<div class="quotebox">
+			<h4>{{quote.quoted_by}}</h4>
+			<p>{{quote.content}}</p>
+			<p>Posted by: <a href="/userProfile/{{quote.user.id}}">{{quote.user.first_name}}</a></p>
+			<button><a href="/favouritequote/{{quote.id}}">Favourite this Quote</a></button>
+			</div>
+		{% endfor %}
+		</div>
+		<div class="favourites">
+			<h1>Favourited Quotes</h1>
+			{% for i in current_user.favourited_quotes.all%}
+			<div class="favbox">
+				<h4>{{i.quoted_by}}</h4>
+				<p>{{i.content}}</p>
+				<p><p>Posted by: <a href="/userProfile/{{i.user.id}}">{{i.user.first_name}}</a></p></p>
+				<button><a href="/removequote/{{i.id}}">Remove this Quote</a></button>
+			</div>
+		{% endfor %}
+		</div>
+	
+			
+			
+
+
+
+
+
+		<div id="last">
+		<form action="/createQuote" method="POST">
+			{% csrf_token %}
+			<div>
+				<label for="quoted_by">Quoted By: <input type="text" name="quoted_by"></label>
+			</div>
+			<p></p>
+			<div>
+				<label for="content">Messages: <textarea type="text" name="content"></textarea></label>
+			</div>
+			<div>
+				<input type="submit" name="quote_button" value="Submit Quote">
+			</div>
+		</form>
+		{% if messages %}
+				{% for message in messages %}
+					<p>{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</body>
+</html>

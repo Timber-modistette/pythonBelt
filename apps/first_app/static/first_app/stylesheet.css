@@ -1,0 +1,49 @@
+.quotebox {
+	border: 2px solid black;
+	width: 320px;
+	height: 153px;
+	margin-bottom: 15px;
+	padding: 5px 5px 5px 5px;
+	display: inline-block;
+
+}
+
+.mainQuoteBox {
+	border: 2px solid black;
+	overflow: scroll;
+	padding: 8px 8px 8px 8px;
+	width: 334px;
+	height: 1000px;
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.favourites{
+	border: 2px solid black;
+	overflow: scroll;
+	padding: 8px 8px 8px 8px;
+	width: 334px;
+	height: 500px;
+	display: inline-block;;
+	vertical-align: top;
+}
+
+.favbox {
+	border: 2px solid black;
+	width: 320px;
+	height: 153px;
+	margin-bottom: 15px;
+	padding: 5px 5px 5px 5px;
+	display: inline-block;
+
+}
+
+#last {
+	border: 2px solid black;
+	padding: 8px 8px 8px 8px;
+	width: 334px;
+	height: 500px;
+	display: inline-block;
+	vertical-align: top;
+
+}

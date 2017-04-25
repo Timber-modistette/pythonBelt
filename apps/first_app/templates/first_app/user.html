@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'first_app/stylesheet2.css' %}">
+</head>
+<body>
+	<a href="/logout">Logout</a>
+	<a href="/homepage">Home</a>
+	<h1>Posts by: {{user.first_name}}</h1>
+	<h3>Count:{{user.quotes.all | length}} </h3>
+	<div>
+		{% for i in user.quotes.all %}
+		<div class="userprofile">
+			<h4 class="red">{{i.quoted_by}}</h4>
+			<p>{{i.content}}</p>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>

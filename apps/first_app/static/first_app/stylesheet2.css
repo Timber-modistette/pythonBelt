@@ -1,0 +1,11 @@
+.userprofile {
+	border:2px solid black;
+	width: 400px;
+	height: 150px;
+	margin-bottom: 15px;
+
+}
+
+.red {
+	color: red;
+}
